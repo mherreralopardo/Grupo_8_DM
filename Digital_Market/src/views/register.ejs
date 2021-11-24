@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head") %>
+<body>
+
+    <%-include("./partials/header") %>
+
+    <form action="/action_page.php">
+      <div class="container">
+        <div class="centrado"> <h1>Registro</h1>
+        <p>Por favor completa este formulario.</p>
+        <hr>
+    </div>
+        <label for="email"><b>Correo Electronico</b></label>
+        <input type="text" placeholder="Ingrese su correo" name="email" id="email" required>
+    
+        <label for="psw"><b>Contraseña</b></label>
+        <input type="password" placeholder="Ingresar contraseña" name="psw" id="psw" required>
+    
+        <label for="psw-repeat"><b>Repetir contraseña</b></label>
+        <input type="password" placeholder="Repetir contraseña" name="psw-repeat" id="psw-repeat" required>
+    
+        <hr>
+       
+    
+        <button type="submit" class="registerbtn">Register</button>
+      </div>
+      
+      <div class="container signin">
+        <p>Ya tienes una cuenta? <a href="#">Inicia sesion</a>.</p>
+      </div>
+    </form>
+    <%-include("./partials/footer") %>
+</body>
+    </html>
