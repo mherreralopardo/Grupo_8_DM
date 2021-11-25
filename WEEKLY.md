@@ -1,0 +1,3 @@
+# Grupo_8_DM
+WEEKLIES:
+Nos reunimos antes de comenzar este sprint para repasar los entregables y dividir tareas de manera equitativa.  Al principio se nos dificultó comprender y realizar el CRUD de productos, por lo que nos propusimos ver las clases nuevamente y reunirnos posteriormente para conversar sobre nuestro progreso en este tema. Por último, antes de entregar el sprint, nos reunimos para ver el resultado final de este, y realizamos los cambios que creímos necesarios. Esta modalidad nos sirvió para estar al tanto de los impedimentos y progresos de cada uno de los integrantes del equipo.
