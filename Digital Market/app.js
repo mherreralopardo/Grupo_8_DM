@@ -43,7 +43,11 @@ servidor.get("/edit/:idProductos", productoscontroller.edit);
 
 servidor.put("/edit", function (req,res){
     res.send("Editando por PUT");
-});
+})
+
+servidor.delete("/delete/:idProductos", function(req,res){
+    res.send("Eliminando con DELETE");
+})
 
 
 
