@@ -32,3 +32,7 @@ servidor.get ("/login", (req,res) => {
 servidor.get ("/productdetail", (req,res) => {
     res.render('productdetail')
 })
+
+servidor.get("/list", productoscontroller.list);
+
+module.exports = servidor;
