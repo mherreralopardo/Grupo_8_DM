@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head") %>
+<body>
+
+    <%-include("./partials/header") %>
+
+    <form action="/action_page.php">
+      <div class="container">
+        <div class="centrado"> <h1>Editando producto <%=productoEditar.name%></h1>
+        <form method="POST" action="/products/edit?_method=PUT">
+            <label for="">Producto</label>
+            <input type="text" name="producto" value="<%= productoEditar%>">
+            
+        <button type="submit" class="registerbtn">Editar</button>
+        </form>
+    </div>
+    
+    </form>
+    <%-include("./partials/footer") %>
+</body>
+    </html>
