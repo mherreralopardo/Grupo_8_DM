@@ -1,4 +1,4 @@
-[
+let users= [
     {
      "name": "Home Loan Account",
      "nickName": "Elroy.Padberg",
@@ -198,4 +198,5 @@
      "email": "Vergie_Cummings@gmail.com",
      "password": "Cas9UgcPrWTj0gk",
      "id": "25"
-    }
+    }]
+module.exports = users;
