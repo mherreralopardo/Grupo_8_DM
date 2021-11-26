@@ -1,11 +1,10 @@
 const express = require ("express")
 const path = require("path")
 const servidor = express()
-
-
-
-
+const methodOverride = require("method-override");
+const { appendFile } = require("fs");
 const publicFolderPath = path.resolve(__dirname, "./public")
+
 servidor.use(express.static(publicFolderPath));
 
 servidor.set('view engine', 'ejs')
@@ -35,3 +34,21 @@ servidor.get ("/login", (req,res) => {
 servidor.get ("/productdetail", (req,res) => {
     res.render('productdetail')
 })
+
+servidor.get("/list", productoscontroller.list);
+
+servidor.use(methodOverride("_method"));
+
+servidor.get("/edit/:idProductos", productoscontroller.edit);
+
+servidor.put("/edit", function (req,res){
+    res.send("Editando por PUT");
+})
+
+servidor.delete("/delete/:idProductos", function(req,res){
+    res.send("Eliminando con DELETE");
+})
+
+
+
+module.exports = servidor;
