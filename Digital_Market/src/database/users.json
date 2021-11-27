@@ -1,4 +1,4 @@
-let users= [
+[
     {
      "name": "Home Loan Account",
      "nickName": "Elroy.Padberg",
@@ -199,4 +199,3 @@ let users= [
      "password": "Cas9UgcPrWTj0gk",
      "id": "25"
     }]
-module.exports = users;

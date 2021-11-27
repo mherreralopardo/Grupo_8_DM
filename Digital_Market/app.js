@@ -4,6 +4,8 @@ const servidor = express()
 const methodOverride = require("method-override");
 const { appendFile } = require("fs");
 const publicFolderPath = path.resolve(__dirname, "./public")
+const productoscontroller = require ("./src/controller/productscontroller")
+const usercontroller = require ("./src/controller/userscontroller")
 
 servidor.use(express.static(publicFolderPath));
 
@@ -48,7 +50,5 @@ servidor.put("/edit", function (req,res){
 servidor.delete("/delete/:idProductos", function(req,res){
     res.send("Eliminando con DELETE");
 })
-
-
 
 module.exports = servidor;
