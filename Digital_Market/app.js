@@ -49,6 +49,12 @@ servidor.get ("/products/create", function (req, res){
         res.render ("productCreate")
 })
 
+
+servidor.get ("/products/:id", function (req, res){
+    let idProductos = req.params.id
+    res.render ("productdetail/" + idProductos)
+})
+
 servidor.post("/crearproducto", [
     check("id").notEmpty(). isNumeric(),
     check("name").notEmpty(). isString(),
