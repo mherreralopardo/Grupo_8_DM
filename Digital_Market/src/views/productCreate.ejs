@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include ("./partials/head") %>
+<body>
+    <%-include("./partials/header") %>
+
+    
+    <form action="/crearproducto" method="POST" enctype="multipart/form-data">
+        <div class="container">
+          <div class="centrado"> <h1>Crear un producto</h1>
+          <p>Por favor completa este formulario.</p>
+          <hr>
+      </div>
+          <label for="ID"><b>ID</b></label>
+          <input type="text" placeholder="Ingrese el ID del producto" name="id" required>
+      
+          <label for="psw"><b>Nombre del producto</b></label>
+          <input type="text" placeholder="Ingresar nombre del producto" name="name" required>
+      
+          <label for="psw-repeat"><b>Descripcion</b></label>
+          <input type="text" placeholder="Ingrese una breve descripción del producto" name="psw-repeat" id="psw-repeat" required>
+      
+          <label for="price"><b>Precio</b></label>
+          <input type="text" placeholder="Ingrese el precio del producto" name="price" required>
+
+          <label> Categoría </label>    
+
+          <select name="category" aria-placeholder="Elige una categoría">
+    
+            <option value="" disabled selected>Elige una categoría</option>
+   
+    <option>Celular</option>
+    
+    <option>Televisión</option>
+
+    <option>Aire acondicionado</option>
+
+    <option>Informática</option>
+    
+    </select>
+
+    <br>
+    <br>
+
+    <label for="type"><b>Tipo de producto</b> </label>
+<br>
+    <input type="radio" name="nuevo" value="nuevo">   
+    <label for="html">Nuevo</label><br>
+        <input type="radio" name="Seleccionado para vos" value="Seleccionado para vos">
+        <label for="css">Seleccionado para vos</label><br>
+        <input type="radio" name="Más vendido" value="Más vendido">
+        <label for="javascript">Más vendido</label>
+
+    </label>
+    <br>
+    <br>
+    <label for="image"><b>ID</b></label>
+    <input type="file" placeholder="Ingrese una imgagen del proucto" name="image" required>
+
+
+          <br>
+         
+      
+          <button type="submit" class="registerbtn">¡Crear!</button>
+        </div>
+        
+        <div class="container signin">
+          <p>Ya tienes una cuenta? <a href="#">Inicia sesion</a>.</p>
+        </div>
+      </form>
+
+
+      <%-include("./partials/footer") %>
+
+</body>
+</html>
+
+</html>

@@ -11,5 +11,10 @@ const productsController = {
          let productoEditar = products[idProductos];
          res.render("productoEditar", {idProductos:idProductos});
     },
+
+    
 }
-module.exports =productsController;
+
+
+
+module.exports = productsController;
