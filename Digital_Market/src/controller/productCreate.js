@@ -7,8 +7,8 @@ const crearProducto = (req, res) => {
     const error = validationResult(req);
     
     if (error.isEmpty()) {
-           
-fs.appendFile( "/database/products.json", req, callback )
+JSON.stringify(req.body)
+fs.appendFile( "/database/products.json", req.body, callback )
 
         res.send("Producto creado con éito");
     
