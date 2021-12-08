@@ -55,7 +55,7 @@ servidor.get ("/products/:id", function (req, res){
     res.render ("productdetail/" + idProductos)
 })
 
-servidor.post("/crearproducto", [
+servidor.post("/products/create", [
     check("id").notEmpty(). isNumeric(),
     check("name").notEmpty(). isString(),
     check("description").notEmpty(),
@@ -63,8 +63,6 @@ servidor.post("/crearproducto", [
     check("discount").notEmpty().isNumeric(),
     check("category").notEmpty(),
     check("image").notEmpty(),
-    check("type").notEmpty(),
-    check("color").notEmpty().isString()
 ], 
 crearProducto
   ); 

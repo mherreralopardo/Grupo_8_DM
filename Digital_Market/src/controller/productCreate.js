@@ -13,7 +13,7 @@ fs.appendFile( "/database/products.json", req.body, callback )
         res.send("Producto creado con éito");
     
     } else {
-        res.send("error, no se pudo guardar");
+        res.send("error, no se pudo guardar" + error);
     }
 };
 

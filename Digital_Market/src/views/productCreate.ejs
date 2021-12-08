@@ -5,7 +5,7 @@
     <%-include("./partials/header") %>
 
     
-    <form action="/crearproducto" method="POST" enctype="multipart/form-data">
+    <form action="/products/create" method="POST" enctype="multipart/form-data">
         <div class="container">
           <div class="centrado"> <h1>Crear un producto</h1>
           <p>Por favor completa este formulario.</p>
@@ -18,10 +18,14 @@
           <input type="text" placeholder="Ingresar nombre del producto" name="name" required>
       
           <label for="psw-repeat"><b>Descripcion</b></label>
-          <input type="text" placeholder="Ingrese una breve descripción del producto" name="psw-repeat" id="psw-repeat" required>
+          <input type="text" placeholder="Ingrese una breve descripción del producto" name="description" id="description" required>
       
           <label for="price"><b>Precio</b></label>
           <input type="text" placeholder="Ingrese el precio del producto" name="price" required>
+
+          <label for="discount"><b>Descuento</b></label>
+          <input type="text" placeholder="Ingrese el descuento del producto" name="discount" required>
+
 
           <label> Categoría </label>    
 
@@ -54,7 +58,7 @@
     </label>
     <br>
     <br>
-    <label for="image"><b>ID</b></label>
+    <label for="image"><b>Imagen de producto</b></label>
     <input type="file" placeholder="Ingrese una imgagen del proucto" name="image" required>
 
 
