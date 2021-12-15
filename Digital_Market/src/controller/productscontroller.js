@@ -11,10 +11,19 @@ const productsController = {
          let productoEditar = products[idProductos];
          res.render("productoEditar", {idProductos:idProductos});
     },
-
+crearProducto: (req, res) => {
+    const error = validationResult(req);
     
+    if (error.isEmpty()) {
+JSON.stringify(req.body)
+fs.appendFile( "/database/products.json", req.body, callback )
+
+        res.send("Producto creado con éito");
+    
+    } else {
+        res.send("error, no se pudo guardar" + error);
+    }
 }
-
-
+}
 
 module.exports = productsController;
