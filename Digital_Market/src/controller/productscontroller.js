@@ -1,4 +1,5 @@
  const prod = require ("../database/products")
+ const { validationResult } = require("express-validator");
  const productos = JSON.parse(JSON.stringify(prod))
 
 const productsController = {
