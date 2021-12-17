@@ -5,7 +5,7 @@
 
     <%-include("./partials/header") %>
 
-    <form action="/action_page.php">
+    <form action="/login">
       <div class="container">
         <div class="centrado"> <h1>Registro</h1>
         <p>Por favor completa este formulario.</p>
@@ -15,11 +15,32 @@
         <input type="text" placeholder="Ingrese su correo" name="email" id="email" required>
     
         <label for="psw"><b>Contraseña</b></label>
-        <input type="password" placeholder="Ingresar contraseña" name="psw" id="psw" required>
+        <input type="password" placeholder="Ingresar contraseña" name="password" id="password" required>
+
+        <label for="pais">¿En que país resides?</label>
+        <br>
+        <select name="pais" id="pais">
+        <option value="argentina">Argentina</option>
+        <option value="uruguay">Uruguay</option>
+        <option value="brasil">Brasil</option>
+        <option value="francia">Francia</option>
+        <option value="espana">España</option>
+        <option value="italia">Italia</option>
+        <option value="reino-unido">Reino Unido</option>
+        <option value="canada">Canadá<Esoption>
+        <option value="estados-unidoss">Estados Unidos</option>
+        <option value="china">China</option>
+        <option value="japon">Japon</option>
+        </select>
     
-        <label for="psw-repeat"><b>Repetir contraseña</b></label>
-        <input type="password" placeholder="Repetir contraseña" name="psw-repeat" id="psw-repeat" required>
-    
+        <br>
+        <br>
+
+
+        <label for="image"><b>Selecciona una imagen</b></label>
+        <input type="file" placeholder="Ingrese una imgagen del proucto" name="image" required>          
+
+
         <hr>
        
     

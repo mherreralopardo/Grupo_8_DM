@@ -8,7 +8,6 @@ const { appendFile } = require("fs");
 const publicFolderPath = path.resolve(__dirname, "./public")
 const productscontroller = require ("../controller/productscontroller")
 const usercontroller = require ("../controller/userscontroller")
-const {crearProducto} = require ("../controller/productCreate");
 const router = express.Router();
 /*const { routes } = require("../../app");*/
 
@@ -18,14 +17,6 @@ router.get ("/", (req,res) => {
 
 router.get ("/productCart", (req,res) => {
     res.render('productCart')
-})
-
-router.get ("/register", (req,res) => {
-    res.render('register')
-})
-
-router.get ("/login", (req,res) => {
-    res.render('login')
 })
 
 router.get ("/productdetail", (req,res) => {
@@ -46,17 +37,17 @@ router.get ("/products/:id", function (req, res){
     res.render ("productdetail/" + idProductos)
 })
 
-router.post("/products/create", [
-    check("id").notEmpty(). isNumeric(),
-    check("name").notEmpty(). isString(),
-    check("description").notEmpty(),
-    check("price").notEmpty().isNumeric(),
-    check("discount").notEmpty().isNumeric(),
-    check("category").notEmpty(),
-    check("image").notEmpty(),
-], 
-crearProducto
-  ); 
+// router.post("/products/create", [
+//     check("id").notEmpty(). isNumeric(),
+//     check("name").notEmpty(). isString(),
+//     check("description").notEmpty(),
+//     check("price").notEmpty().isNumeric(),
+//     check("discount").notEmpty().isNumeric(),
+//     check("category").notEmpty(),
+//     check("image").notEmpty(),
+// ], 
+// productscontroller.create()
+//   ); 
 
 router.get("/edit/:idProductos", productscontroller.edit);
 

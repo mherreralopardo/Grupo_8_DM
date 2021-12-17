@@ -7,14 +7,16 @@ const { check } = require("express-validator");
 const { appendFile } = require("fs");
 const publicFolderPath = path.resolve(__dirname, "./public")
 const usercontroller = require ("./src/controller/userscontroller")
-const {crearProducto} = require ("./src/controller/productCreate")
 const router = express.Router();
 const rutasProductos = require("./src/router/products")
+const rutasUsers = require("./src/router/users")
 
 servidor.use(express.static(publicFolderPath));
 
 
 servidor.use ("/", rutasProductos)
+servidor.use ("/", rutasUsers)
+
 
 servidor.set('view engine', 'ejs')
 
