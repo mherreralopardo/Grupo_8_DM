@@ -3,7 +3,7 @@
  const productos = JSON.parse(JSON.stringify(prod))
 
 const productsController = {
-    "list": function(req,res) {
+    list: function(req,res) {
          res.render("productsList", {"products": products});
     },
       edit: function(req,res) {
@@ -12,6 +12,10 @@ const productsController = {
          let productoEditar = products[idProductos];
          res.render("productoEditar", {idProductos:idProductos});
     },
+    crear : (req,res) => {
+        res.render("productCreate", {"products": products});
+    },
+    
 crearProducto: (req, res) => {
     const error = validationResult(req);
     

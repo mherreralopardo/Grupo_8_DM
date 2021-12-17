@@ -27,9 +27,9 @@ router.get("/list", productscontroller.list);
 
 router.use(methodOverride("_method"));
 
-router.get ("/products/create", function (req, res){
-        res.render ("productCreate")
-})
+router.get ("/products/create", productscontroller.crearProducto);
+
+router.post("/create", productscontroller.crearProducto);
 
 
 router.get ("/products/:id", function (req, res){
