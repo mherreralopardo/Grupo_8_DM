@@ -48,7 +48,7 @@ const controller = {
         if(userToLogin){
             let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password)
             if (passwordOk){
-                delete userToLogin.password
+                delete userToLogin.passwordGIT
                 req.session.userLogged = userToLogin;
                 return res.send ()
             }
