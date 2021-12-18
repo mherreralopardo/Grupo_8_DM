@@ -1,4 +1,5 @@
 const express = require ("express")
+const session = require ("express-session")
 const path = require("path")
 const multer = require ("multer")
 const servidor = express()
@@ -17,6 +18,11 @@ servidor.use(express.static(publicFolderPath));
 servidor.use ("/", rutasProductos)
 servidor.use ("/", rutasUsers)
 
+servidor.use (session({
+    secret: "shhh",
+    resave: false, 
+    saveUninitialized: false,     
+}))
 
 servidor.set('view engine', 'ejs')
 

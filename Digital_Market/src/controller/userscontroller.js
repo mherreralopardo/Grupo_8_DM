@@ -39,6 +39,39 @@ const controller = {
 },
 
     login: (req, res) => {
-        return res.render (/* Vista de Login */)
+        return res.render ("/user/login")
+    },
+
+    loginProcess: (req,res) => {
+        let userToLogin = User.findByField("email", req.body.email)
+        
+        if(userToLogin){
+            let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password)
+            if (passwordOk){
+                delete userToLogin.password
+                req.session.userLogged = userToLogin;
+                return res.send ()
+            }
+
+            return res.render ("login", {
+                errors: {
+                    email: {
+                        msg: "Error en la contraseña"
+                    }
+                }
+            })
+        }
+
+        return res.render ("login", {
+            errors: {
+                email: {
+                    msg: "Email no encontrado"
+                }
+            }
+        })
+    },
+
+    profile: (req,res) => {
+        return res.render()
     }
 }

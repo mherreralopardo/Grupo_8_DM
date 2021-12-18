@@ -5,7 +5,7 @@
     <%-include("./partials/header") %>
 <body>
 
-<form action="/action_page.php">
+<form action="/login">
   <div class="container">
     <h1>Inicio de sesion</h1>
    
@@ -13,6 +13,12 @@
 
     <label for="email"><b>Correo Electronico</b></label>
     <input type="text" placeholder="Ingrese su correo" name="email" id="email" required>
+
+    <% if (locals.errors && errors.email) { %>
+      <div class= "text-danger">
+        <%= errors.email.msg%>
+      </div> 
+      <% } %>
 
     <label for="psw"><b>Contraseña</b></label>
     <input type="password" placeholder="Ingresar contraseña" name="psw" id="psw" required>
