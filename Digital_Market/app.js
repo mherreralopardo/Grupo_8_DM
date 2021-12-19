@@ -11,18 +11,22 @@ const usercontroller = require ("./src/controller/userscontroller")
 const router = express.Router();
 const rutasProductos = require("./src/router/products")
 const rutasUsers = require("./src/router/users")
+const userLoggedMiddleware = require ("./src/middlewares/userLoggedMiddleware")
 
 servidor.use(express.static(publicFolderPath));
 
 
-servidor.use ("/", rutasProductos)
-servidor.use ("/", rutasUsers)
 
 servidor.use (session({
     secret: "shhh",
     resave: false, 
     saveUninitialized: false,     
 }))
+
+
+servidor.use (userLoggedMiddleware)
+servidor.use ("/", rutasProductos)
+servidor.use ("/", rutasUsers)
 
 servidor.set('view engine', 'ejs')
 

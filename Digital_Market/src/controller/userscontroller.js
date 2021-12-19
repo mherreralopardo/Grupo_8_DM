@@ -2,7 +2,7 @@ const {ValidationResult, validationResult} = require ("express-validator")
 const bcryptjs = require ("bcryptjs");
 const User = require ("../models/User");
 
-const controller = {
+module.exports = {
     register: (req, res) => {
         const resultValidation = validationResult(req);
 
@@ -73,5 +73,10 @@ const controller = {
 
     profile: (req,res) => {
         return res.render()
+    },
+
+    logOut: (req,res) => {
+        req.session.destroy();
+        return res.redirect ("/")
     }
 }

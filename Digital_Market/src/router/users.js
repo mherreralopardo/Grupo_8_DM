@@ -7,17 +7,18 @@ const { check } = require("express-validator");
 const { appendFile } = require("fs");
 const publicFolderPath = path.resolve(__dirname, "./public")
 const usersController = require ("../controller/userscontroller")
-const usercontroller = require ("../controller/userscontroller")
+const userscontroller = require ("../controller/userscontroller")
 const router = express.Router();
-/*const { routes } = require("../../app");*/
+const guestMiddleware = require ("../middlewares/guestMiddleware")
+const authMiddleware = require ("../middlewares/authMiddleware")
+const { routes } = require("../../app")
 
-router.get ("/register", (req,res) => {
-    res.render('register')
-})
+router.get ("/register", guestMiddleware, userscontroller.register)
 
-router.get ("/login", (req,res) => {
-    res.render('login')
-})
+router.get ("/login", guestMiddleware, userscontroller.login)
 
+// router.get ("/profile/", authMiddleware, usercontroller.profile)
+
+router.get ("/logout/", userscontroller.logOut)
 
 module.exports = router
