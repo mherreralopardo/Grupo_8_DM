@@ -11,6 +11,7 @@ const usercontroller = require ("./src/controller/userscontroller")
 const router = express.Router();
 const rutasProductos = require("./src/router/products")
 const rutasUsers = require("./src/router/users")
+const cookies = require("cookie-parser")
 const userLoggedMiddleware = require ("./src/middlewares/userLoggedMiddleware")
 
 servidor.use(express.static(publicFolderPath));
@@ -23,7 +24,7 @@ servidor.use (session({
     saveUninitialized: false,     
 }))
 
-
+servidor.use (cookies())
 servidor.use (userLoggedMiddleware)
 servidor.use ("/", rutasProductos)
 servidor.use ("/", rutasUsers)

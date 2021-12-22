@@ -3,7 +3,14 @@ const bcryptjs = require ("bcryptjs");
 const User = require ("../models/User");
 
 module.exports = {
-    register: (req, res) => {
+
+register: (req,res) =>{ 
+res.cookie("Testiando", { maxAge : 1000 * 30})
+return res.render("userRegisterForm")
+
+},
+
+    processRegister: (req, res) => {
         const resultValidation = validationResult(req);
 
         if (resultValidation.errors.length > 0){
@@ -77,6 +84,7 @@ module.exports = {
 
     logOut: (req,res) => {
         req.session.destroy();
+        console.log(req.session)
         return res.redirect ("/")
     }
 }
