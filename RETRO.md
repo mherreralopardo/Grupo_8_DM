@@ -1,7 +1,7 @@
 RETRO.md
 Finalizando este sprint, concluimos:
-1.	Comenzar a hacer: Aplicar las correcciones de sprint anteriores, como fue esta vez la comunicación entre los integrantes del equipo.
-2.	Hacer más: Comprometernos con el trabajo de manera de entregar los sprint en tiempo y forma.
-3.	Continuar haciendo: weekly o daily standups, para estar al tanto de nuestros impedimentos y progresos.
-4.	Hacer menos: Dejar tareas para último momento, nos propusimos gestionar el tiempo para poder utilizarlo de forma eficiente.
-5.	Dejar de hacer: No establecer canales claros de comunicación. 
+1.	Comenzar a hacer: Reveer clases y repasar conceptos clave al trabarnos con algún entregable del sprint.
+2.	Hacer más: Consultar con los profesores antes de quedarnos con dudas.
+3.	Continuar haciendo: Comunicarnos entre nosotros para estar al tanto de los progresos de cada uno.
+4.	Hacer menos: Dejar tareas incompletas.
+5.	Dejar de hacer: Quedarnos atras con clases que luego nos atrasan en los sprints.
