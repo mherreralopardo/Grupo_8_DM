@@ -15,7 +15,7 @@ const { routes } = require("../../app")
 
 router.get ("/register", guestMiddleware, userscontroller.register)
 
-router.get ("/login", guestMiddleware, userscontroller.login)
+router.get ("/login",guestMiddleware, userscontroller.login)
 
 // router.get ("/profile/", authMiddleware, usercontroller.profile)
 
