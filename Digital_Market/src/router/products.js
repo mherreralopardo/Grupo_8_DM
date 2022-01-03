@@ -59,4 +59,12 @@ router.delete("/delete/:idProductos", function(req,res){
     res.send("Eliminando con DELETE");
 })
 
+/* SEQUELIZE */
+router.get("/crear", productscontroller.crear);
+
+router.post("/crear", productscontroller.guardado);
+
+
+
+
 module.exports = router

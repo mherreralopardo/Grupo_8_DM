@@ -1,6 +1,8 @@
-const prod = require ("../database/products")
+const prod = require ("../database/products");
 const { validationResult } = require("express-validator");
-const productos = JSON.parse(JSON.stringify(prod))
+const productos = JSON.parse(JSON.stringify(prod));
+const db = require ("../database/models");
+
 
 const productsController = {
    list: function(req,res) {
@@ -13,7 +15,10 @@ const productsController = {
         res.render("productoEditar", {idProductos:idProductos});
    },
    crear : (req,res) => {
-       res.render("productCreate", {"products": products});
+       db.Productos.findAll ()
+       .then (function(productos){
+           return res.render ("/")
+       })
    },
    
 crearProducto: (req, res) => {
