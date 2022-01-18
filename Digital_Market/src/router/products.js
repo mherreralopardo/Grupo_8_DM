@@ -7,7 +7,8 @@ const { check } = require("express-validator");
 const { appendFile } = require("fs");
 const publicFolderPath = path.resolve(__dirname, "./public")
 const productscontroller = require ("../controller/productscontroller")
-const usercontroller = require ("../controller/userscontroller")
+const usercontroller = require ("../controller/userscontroller");
+const productsController = require("../controller/productscontroller");
 const router = express.Router();
 /*const { routes } = require("../../app");*/
 
@@ -64,7 +65,10 @@ router.get("/crear", productscontroller.crear);
 
 router.post("/crear", productscontroller.guardado);
 
+router.get("/", productscontroller.listado)
 
+router.get("/:id", productsController.detalle)
 
+router.get ("/editar/:id", productscontroller.editar)
 
 module.exports = router
