@@ -4,7 +4,7 @@ const User = require("../../database/models/User");
 
 module.exports = {
 
-    register: (req, res) => {
+        register: (req, res) => {
         res.cookie("Testiando", { maxAge: 1000 * 30 })
         return res.render("register")
 
@@ -86,5 +86,23 @@ module.exports = {
         req.session.destroy();
         console.log(req.session)
         return res.redirect("/")
-    }
+    },
+    crear : (req,res) => {
+        db.findAll ()
+        .then (function(productos){
+            return res.render ("/")
+        })
+    },
+    
+ guardado: function (req,res){
+     db.Usuario.create({
+         name: req.body.name,
+         email: req.body.email,
+         password:req.body.password,
+         country: req.body.country,
+         image: req.body.image,
+     }
+     );
+     res.redirect("/")
+ }
 }

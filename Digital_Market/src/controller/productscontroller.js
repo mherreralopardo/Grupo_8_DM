@@ -1,7 +1,7 @@
-const prod = require ("../../database/models/productos");
+const prod = require ("../../database/models/Productos");
 const { validationResult } = require("express-validator");
-const db = require ("../../database/models");
-const User = require();
+const { db } = prod;
+
 
 
 const productsController = {
@@ -9,20 +9,20 @@ const productsController = {
         res.render("productsList", {"products": products});
    },
      edit: function(req,res) {
-         let idProductos= req.params.idProductos;
+        let idProductos= req.params.id;
         let products = productos;
         let productoEditar = products[idProductos];
         res.render("productoEditar", {idProductos:idProductos});
    },
    crear : (req,res) => {
-       db.Productos.findAll ()
+       db.findAll ()
        .then (function(productos){
            return res.render ("/")
        })
    },
    
 guardado: function (req,res){
-    db.Producto({
+    db.Producto.create({
         id: req.body.id,
         name: req.body.name,
         description: req.body.description,
@@ -54,10 +54,44 @@ detalle: function (req,res){
 },
 
 editar: function(req,res){
-    let pedidoproducto = db.productos.findAll(req.params.id);
-    let pedido
+    let pedidoproducto = db.Productos.findAll(req.params.id);
+    let pedidoUsuario = db.Usuarios.findAll();
+
+    Promise.all([pedidoproducto, pedidoUsuario])
+    .then (function([producto, usuario]){
+        res.render("/productlist")
+    })
 },
 
+actualizar: function(req,res){
+    db.Producto.update({
+        id: req.body.id,
+        name: req.body.name,
+        description: req.body.description,
+        price:req.body.price,
+        discount: req.body.discount,
+        category: req.body.category,
+        image: req.body.image,
+        type:req.body.type,
+        color: req.body.color
+    }, {
+        where: {
+            id:req.params.id
+        }
+    });
+
+    res.render("/productsdetail/"+req.paras.id)
+},
+
+borrar: function (req,res){
+    db.Producto.destroy ({
+        where: {
+            id: req.params.id
+        }
+    })
+    res.redirect("/productlist")
+}
+,
 crearProducto: (req, res) => {
    const error = validationResult(req);
    

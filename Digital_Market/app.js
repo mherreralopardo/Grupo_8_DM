@@ -24,6 +24,8 @@ servidor.use (session({
     saveUninitialized: false,     
 }))
 
+servidor.use(express.urlencoded({extended:false}));
+
 servidor.use (cookies())
 servidor.use (userLoggedMiddleware)
 servidor.use ("/", rutasProductos)

@@ -38,6 +38,21 @@ router.get ("/products/:id", function (req, res){
     res.render ("productdetail/" + idProductos)
 })
 
+
+router.post("/login", [
+    check("id").notEmpty(). isNumeric(),
+    check("name").notEmpty(). isString(),
+    check("description").notEmpty(),
+    check("price").notEmpty().isNumeric(),
+    check("discount").notEmpty().isNumeric(),
+    check("category").notEmpty(),
+    check("image").notEmpty(),
+], 
+productsController.crear()
+  ); 
+
+
+
 // router.post("/products/create", [
 //     check("id").notEmpty(). isNumeric(),
 //     check("name").notEmpty(). isString(),
@@ -70,5 +85,10 @@ router.get("/", productscontroller.listado)
 router.get("/:id", productsController.detalle)
 
 router.get ("/editar/:id", productscontroller.editar)
+
+router.post ("/editar/:id", productscontroller.actualizar)
+
+router.post ("/borrar/id", productsController.borrar)
+
 
 module.exports = router
