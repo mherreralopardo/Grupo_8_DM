@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes){
-    let alias = "Productos"
+    let alias = "Compras"
 
     let cols = {
         /* AJUSTAR NOMBRE DE COLUMNAS
@@ -7,53 +7,42 @@ module.exports = function (sequelize, DataTypes){
         {"id":16,"name":"Televisor Samsung-50 pulgadas","description"","price":4632,"discount":17,"category":"Televisores","image":"Sensei-32p.jpg","type":"Nuevo","color":"Negro"},
         */
         
-        id: {
+        productos_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        clientes_id: {
             type: DataTypes.STRING  
         },
-        description: {
+        direccion_envio: {
             type: DataTypes.STRING  
         },
-        price: {
-            type: DataTypes.INTEGER  
-        },
-        discount: {
-            type: DataTypes.INTEGER  
-        },
-        category: {
+        email_compra: {
             type: DataTypes.STRING  
         },
-        image: {
+        fecha_compra: {
             type: DataTypes.STRING  
         },
-        type: {
+        status_compra: {
             type: DataTypes.STRING  
         },
-        color: {
-            type: DataTypes.STRING  
-        }
     }
 
     let config = {
-        tableName: "productos",
+        tableName: "compras",
         timestamps: false
     }
 
-    let Productos = sequelize.define (alias, cols, config);
+    let Compras = sequelize.define (alias, cols, config);
 
-    Productos.associate = function (models) {
-        Productos.belongsToMany(models.Usuarios, {
-            as: "Usuarios",
-            through:"",
-            foreignKey: "productos_id",
-            otherKey: "usuario_id",
+    Compras.associate = function (models) {
+        Compras.hasMany(models.Clientes, {
+            as: "Clientes",
+            foreignKey: "clientes_id",
             timestamps: false
         })
     }
 
-    return Productos;
+    return Compras;
 }

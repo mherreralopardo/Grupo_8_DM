@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes){
-    let alias = "Productos"
+    let alias = "CompraProductos"
 
     let cols = {
         /* AJUSTAR NOMBRE DE COLUMNAS
@@ -12,28 +12,10 @@ module.exports = function (sequelize, DataTypes){
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        productos_id: {
             type: DataTypes.STRING  
         },
-        description: {
-            type: DataTypes.STRING  
-        },
-        price: {
-            type: DataTypes.INTEGER  
-        },
-        discount: {
-            type: DataTypes.INTEGER  
-        },
-        category: {
-            type: DataTypes.STRING  
-        },
-        image: {
-            type: DataTypes.STRING  
-        },
-        type: {
-            type: DataTypes.STRING  
-        },
-        color: {
+        compras_id: {
             type: DataTypes.STRING  
         }
     }
@@ -46,11 +28,9 @@ module.exports = function (sequelize, DataTypes){
     let Productos = sequelize.define (alias, cols, config);
 
     Productos.associate = function (models) {
-        Productos.belongsToMany(models.Usuarios, {
+        Productos.belongsTo(models.Usuarios, {
             as: "Usuarios",
-            through:"",
             foreignKey: "productos_id",
-            otherKey: "usuario_id",
             timestamps: false
         })
     }

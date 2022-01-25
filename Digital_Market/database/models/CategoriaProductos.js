@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes){
-    let alias = "Productos"
+    let alias = "CategoriaProductos"
 
     let cols = {
         /* AJUSTAR NOMBRE DE COLUMNAS
@@ -7,53 +7,30 @@ module.exports = function (sequelize, DataTypes){
         {"id":16,"name":"Televisor Samsung-50 pulgadas","description"","price":4632,"discount":17,"category":"Televisores","image":"Sensei-32p.jpg","type":"Nuevo","color":"Negro"},
         */
         
-        id: {
+        productos_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        categorias: {
             type: DataTypes.STRING  
         },
-        description: {
-            type: DataTypes.STRING  
-        },
-        price: {
-            type: DataTypes.INTEGER  
-        },
-        discount: {
-            type: DataTypes.INTEGER  
-        },
-        category: {
-            type: DataTypes.STRING  
-        },
-        image: {
-            type: DataTypes.STRING
-        },
-        type: {
-            type: DataTypes.STRING  
-        },
-        color: {
-            type: DataTypes.STRING  
-        }
     }
 
     let config = {
-        tableName: "productos",
+        tableName: "categoria_producto",
         timestamps: false
     }
 
-    let Productos = sequelize.define (alias, cols, config);
+    let CategoriaProductos = sequelize.define (alias, cols, config);
 
-    Productos.associate = function (models) {
-        Productos.belongsToMany(models.Usuarios, {
-            as: "Usuarios",
-            through:"",
-            foreignKey: "productos_id",
-            otherKey: "usuario_id",
+    CategoriaProductos.associate = function (models) {
+        CategoriaProductos.hasMany(models.Categoria, {
+            as: "Categoria",
+            foreignKey: "categoria_id",
             timestamps: false
         })
     }
 
-    return Productos;
+    return CategoriaProductos;
 }
