@@ -1,7 +1,7 @@
 RETRO.md
 Finalizando este sprint, concluimos:
-1.	Comenzar a hacer: Reveer clases y repasar conceptos clave al trabarnos con algún entregable del sprint.
-2.	Hacer más: Consultar con los profesores antes de quedarnos con dudas.
-3.	Continuar haciendo: Comunicarnos entre nosotros para estar al tanto de los progresos de cada uno.
-4.	Hacer menos: Dejar tareas incompletas.
-5.	Dejar de hacer: Quedarnos atras con clases que luego nos atrasan en los sprints.
+1.	Comenzar a hacer: Comprometernos más con la daily de manera de poder estar al tanto de los problemas y progresos de cada uno.
+2.	Hacer más: Repasar clases y contenido.
+3.	Continuar haciendo: Hablar durante el transcurso del proyecto y ayudarnos al encontrarnos con algún problema.
+4.	Hacer menos: Quedarnos atras con el curso.
+5.	Dejar de hacer: Dejar cosas para último momento.
