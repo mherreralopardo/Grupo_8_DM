@@ -1,7 +1,12 @@
-const prod = require ("../../database/models/Productos");
 const { validationResult } = require("express-validator");
-const { db } = prod;
 
+const path = require("path");
+let fs = require('fs')
+
+//Nos traemos la sintaxis de Sequelize//
+const db = require('../../database/models');
+//Aca deberiamos literalmente llamar a la tabla//
+const prod = db.Productos
 
 
 const productsController = {
@@ -16,13 +21,13 @@ const productsController = {
    },
    crear : (req,res) => {
        db.findAll ()
-       .then (function(productos){
+       .then (function(prod){
            return res.render ("/")
        })
    },
    
 guardado: function (req,res){
-    db.Producto.create({
+   prod.create({
         id: req.body.id,
         name: req.body.name,
         description: req.body.description,
@@ -38,14 +43,14 @@ guardado: function (req,res){
 },
 
 listado: function (req,res){
-    db.productos.findAll()
+    prod.findAll()
     .then(function(productos){
         res.render("productlist", {productos:productos})
     })
 },
 
 detalle: function (req,res){
-    db.productos.findByPk(req.params.id, {
+    prod.findByPk(req.params.id, {
         include: {association: "Usuarios"}, /* insertar otras tablas que tengan relacion*/
     }) 
     .then (function (productos){
@@ -54,7 +59,7 @@ detalle: function (req,res){
 },
 
 editar: function(req,res){
-    let pedidoproducto = db.Productos.findAll(req.params.id);
+    let pedidoproducto = prod.findAll(req.params.id);
     let pedidoUsuario = db.Usuarios.findAll();
 
     Promise.all([pedidoproducto, pedidoUsuario])
@@ -64,7 +69,7 @@ editar: function(req,res){
 },
 
 actualizar: function(req,res){
-    db.Producto.update({
+    prod.update({
         id: req.body.id,
         name: req.body.name,
         description: req.body.description,
@@ -84,7 +89,7 @@ actualizar: function(req,res){
 },
 
 borrar: function (req,res){
-    db.Producto.destroy ({
+    prod.destroy ({
         where: {
             id: req.params.id
         }
