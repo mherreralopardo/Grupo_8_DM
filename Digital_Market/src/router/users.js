@@ -11,19 +11,26 @@ const storage = multer.diskStorage({
 })
 const {body} = require("express-validator")
 const uploadFile = multer({storage})
-const servidor = express()
-const methodOverride = require("method-override");
-const { check } = require("express-validator");
-const { appendFile } = require("fs");
-const publicFolderPath = path.resolve(__dirname, "./public")
 const usersController = require ("../controller/userscontroller")
 const userscontroller = require ("../controller/userscontroller")
 const router = express.Router();
 const guestMiddleware = require ("../middlewares/guestMiddleware")
-const authMiddleware = require ("../middlewares/authMiddleware")
-const { routes } = require("../../app")
 const usercontroller = require("../controller/userscontroller");
-const productsController = require("../controller/productscontroller");
+
+
+
+/*router.post("/login", [
+    check("id").notEmpty(). isNumeric(),
+    check("name").notEmpty(). isString(),
+    check("description").notEmpty(),
+    check("price").notEmpty().isNumeric(),
+    check("discount").notEmpty().isNumeric(),
+    check("category").notEmpty(),
+    check("image").notEmpty(),
+], 
+productsController.crear()
+  ); */
+
 
 const validations = [ 
     body("name").notEmpty().withMessage("Tenés que escribir un nombre"),
@@ -66,3 +73,5 @@ router.post("/crear", usercontroller.guardado);
 
 
 module.exports = router
+
+

@@ -1,4 +1,3 @@
-const { json } = require("express/lib/response");
 const fs = require ("fs")
 
 const User = {

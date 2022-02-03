@@ -8,7 +8,6 @@ const { appendFile } = require("fs");
 const publicFolderPath = path.resolve(__dirname, "./public")
 const productscontroller = require ("../controller/productscontroller")
 const usercontroller = require ("../controller/userscontroller");
-const productsController = require("../controller/productscontroller");
 const router = express.Router();
 /*const { routes } = require("../../app");*/
 
@@ -37,19 +36,6 @@ router.get ("/products/:id", function (req, res){
     let idProductos = req.params.id
     res.render ("productdetail/" + idProductos)
 })
-
-
-router.post("/login", [
-    check("id").notEmpty(). isNumeric(),
-    check("name").notEmpty(). isString(),
-    check("description").notEmpty(),
-    check("price").notEmpty().isNumeric(),
-    check("discount").notEmpty().isNumeric(),
-    check("category").notEmpty(),
-    check("image").notEmpty(),
-], 
-productsController.crear()
-  ); 
 
 
 
@@ -82,13 +68,13 @@ router.post("/crear", productscontroller.guardado);
 
 router.get("/", productscontroller.listado)
 
-router.get("/:id", productsController.detalle)
+router.get("/:id", productscontroller.detalle)
 
 router.get ("/editar/:id", productscontroller.editar)
 
 router.post ("/editar/:id", productscontroller.actualizar)
 
-router.post ("/borrar/id", productsController.borrar)
+router.post ("/borrar/id", productscontroller.borrar)
 
 
 module.exports = router

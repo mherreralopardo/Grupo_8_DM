@@ -33,10 +33,14 @@ module.exports = function (sequelize, DataTypes){
 
     let Productos = sequelize.define (alias, cols, config);
 
+ 
+
     Productos.associate = function (models) {
-        Productos.hasMany(models.CategoriaProductos, {
-            as: "CategoriaProductos",
-            foreignKey: "CategoriaProductos_id",
+        Productos.belongsToMany(models.Clientes, {
+            as: "Clientes",
+            through:"producto_cliente",
+            foreignKey: "producto_id",
+            otherKey: "cliente_id",
             timestamps: false
         })
     }

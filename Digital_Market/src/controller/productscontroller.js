@@ -1,6 +1,4 @@
 const { validationResult } = require("express-validator");
-
-const path = require("path");
 let fs = require('fs')
 
 //Nos traemos la sintaxis de Sequelize//
@@ -19,12 +17,9 @@ const productsController = {
         let productoEditar = products[idProductos];
         res.render("productoEditar", {idProductos:idProductos});
    },
-   crear : (req,res) => {
-       db.findAll ()
-       .then (function(prod){
-           return res.render ("/")
-       })
-   },
+  crear : function(req, res){
+    res.render("productCreate")
+  },
    
 guardado: function (req,res){
    prod.create({
@@ -51,7 +46,7 @@ listado: function (req,res){
 
 detalle: function (req,res){
     prod.findByPk(req.params.id, {
-        include: {association: "Usuarios"}, /* insertar otras tablas que tengan relacion*/
+        include: {association: "Clientes"}, /* insertar otras tablas que tengan relacion*/
     }) 
     .then (function (productos){
         res.render("productdetail", {productos:productos})
@@ -60,10 +55,10 @@ detalle: function (req,res){
 
 editar: function(req,res){
     let pedidoproducto = prod.findAll(req.params.id);
-    let pedidoUsuario = db.Usuarios.findAll();
+    let pedidoCliente = db.Clientes.findAll();
 
-    Promise.all([pedidoproducto, pedidoUsuario])
-    .then (function([producto, usuario]){
+    Promise.all([pedidoproducto, pedidoCliente])
+    .then (function([producto, cliente]){
         res.render("/productlist")
     })
 },
