@@ -42,6 +42,9 @@ listado: function (req,res){
     .then(function(productos){
         res.render("productlist", {productos:productos})
     })
+    .catch(function(e) {
+        console.log(e)
+    })
 },
 
 detalle: function (req,res){
@@ -50,6 +53,9 @@ detalle: function (req,res){
     }) 
     .then (function (productos){
         res.render("productdetail", {productos:productos})
+    })
+    .catch(function(e) {
+        console.log(e)
     })
 },
 
@@ -60,6 +66,9 @@ editar: function(req,res){
     Promise.all([pedidoproducto, pedidoCliente])
     .then (function([producto, cliente]){
         res.render("/productlist")
+    })
+    .catch(function(e) {
+        console.log(e)
     })
 },
 

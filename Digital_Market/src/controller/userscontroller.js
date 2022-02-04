@@ -92,7 +92,9 @@ module.exports = {
         .then (function(productos){
             return res.render ("/")
         })
-    },
+        .catch(function(e) {
+            console.log(e)
+        })},
     
  guardado: function (req,res){
      db.Usuario.create({

@@ -1,13 +1,8 @@
 const express = require ("express")
 const path = require("path")
-const multer = require ("multer")
-const servidor = express()
 const methodOverride = require("method-override");
-const { check } = require("express-validator");
-const { appendFile } = require("fs");
 const publicFolderPath = path.resolve(__dirname, "./public")
 const productscontroller = require ("../controller/productscontroller")
-const usercontroller = require ("../controller/userscontroller");
 const router = express.Router();
 /*const { routes } = require("../../app");*/
 

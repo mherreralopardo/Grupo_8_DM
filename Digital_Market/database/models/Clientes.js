@@ -29,7 +29,7 @@ module.exports = function (sequelize, DataTypes){
     }
 
     let config = {
-        tableName: "Cliente",
+        tableName: "Clientes",
         timestamps: false
     }
 
@@ -39,8 +39,8 @@ module.exports = function (sequelize, DataTypes){
         Clientes.belongsToMany(models.Productos, {
             as: "productos",
             through:"producto_cliente",
-            foreignKey: "cliente_id",
-            otherKey: "producto_id",
+            foreignKey: "id",
+            otherKey: "id",
             timestamps: false
         });
     }
