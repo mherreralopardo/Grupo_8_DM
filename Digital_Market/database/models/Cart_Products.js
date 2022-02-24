@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes){
-    let alias = "CompraProductos"
+    let alias = "Cart_Products"
 
     let cols = {
         /* AJUSTAR NOMBRE DE COLUMNAS
@@ -21,19 +21,19 @@ module.exports = function (sequelize, DataTypes){
     }
 
     let config = {
-        tableName: "compras_productos",
+        tableName: "Cart_Products",
         timestamps: false
     }
 
-    let CompraProductos = sequelize.define (alias, cols, config);
+    let Cart_Products = sequelize.define (alias, cols, config);
 
-    CompraProductos.associate = function (models) {
-        CompraProductos.hasMany(models.Compras, {
-            as: "Compras",
-            foreignKey: "productos_id",
+    Cart_Products.associate = function (models) {
+        Cart_Products.hasMany(models.Cart, {
+            as: "Cart",
+            foreignKey: "products_id",
             timestamps: false
         })
     }
 
-    return CompraProductos;
+    return Cart_Products;
 }

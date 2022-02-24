@@ -1,5 +1,7 @@
+const Categories = require("./Categories");
+
 module.exports = function (sequelize, DataTypes){
-    let alias = "Compras"
+    let alias = "Cart"
 
     let cols = {
         /* AJUSTAR NOMBRE DE COLUMNAS
@@ -7,42 +9,42 @@ module.exports = function (sequelize, DataTypes){
         {"id":16,"name":"Televisor Samsung-50 pulgadas","description"","price":4632,"discount":17,"category":"Televisores","image":"Sensei-32p.jpg","type":"Nuevo","color":"Negro"},
         */
         
-        productos_id: {
+        products_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        clientes_id: {
+        users_id: {
             type: DataTypes.STRING  
         },
-        direccion_envio: {
+        adress: {
             type: DataTypes.STRING  
         },
-        email_compra: {
+        email_cart: {
             type: DataTypes.STRING  
         },
-        fecha_compra: {
+        fecha_cart: {
             type: DataTypes.STRING  
         },
-        status_compra: {
+        status_cart: {
             type: DataTypes.STRING  
         },
     }
 
     let config = {
-        tableName: "compras",
+        tableName: "cart",
         timestamps: false
     }
 
-    let Compras = sequelize.define (alias, cols, config);
+    let Cart = sequelize.define (alias, cols, config);
 
-    Compras.associate = function (models) {
-        Compras.hasMany(models.Clientes, {
-            as: "Clientes",
+    Cart.associate = function (models) {
+        Cart.hasMany(models.Users, {
+            as: "Users",
             foreignKey: "id",
             timestamps: false
         })
     }
 
-    return Compras;
+    return Cart;
 }

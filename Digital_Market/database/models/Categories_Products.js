@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes){
-    let alias = "CategoriaProductos"
+    let alias = "Categories_Products"
 
     let cols = {
         /* AJUSTAR NOMBRE DE COLUMNAS
@@ -7,12 +7,12 @@ module.exports = function (sequelize, DataTypes){
         {"id":16,"name":"Televisor Samsung-50 pulgadas","description"","price":4632,"discount":17,"category":"Televisores","image":"Sensei-32p.jpg","type":"Nuevo","color":"Negro"},
         */
         
-        productos_id: {
+        products_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        categorias: {
+        categories: {
             type: DataTypes.STRING  
         },
     }
@@ -22,15 +22,15 @@ module.exports = function (sequelize, DataTypes){
         timestamps: false
     }
 
-    let CategoriaProductos = sequelize.define (alias, cols, config);
+    let Categories_Products= sequelize.define (alias, cols, config);
 
-    CategoriaProductos.associate = function (models) {
-        CategoriaProductos.hasMany(models.Categoria, {
-            as: "Categoria",
-            foreignKey: "categoria_id",
+    Categories_Products.associate = function (models) {
+        Categories_Products.hasMany(models.Categories, {
+            as: "Categories",
+            foreignKey: "categories_id",
             timestamps: false
         })
     }
 
-    return CategoriaProductos;
+    return Categories_Products;
 }
