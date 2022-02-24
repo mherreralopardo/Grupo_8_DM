@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes){
-    let alias = "Clientes"
+    let alias = "Users"
 
     let cols = {
         /* AJUSTAR NOMBRE DE COLUMNA
@@ -29,16 +29,16 @@ module.exports = function (sequelize, DataTypes){
     }
 
     let config = {
-        tableName: "Clientes",
+        tableName: "Users",
         timestamps: false
     }
 
-    let Clientes = sequelize.define (alias, cols, config);
+    let Users = sequelize.define (alias, cols, config);
 
-    Clientes.associate = function (models) {
-        Clientes.belongsToMany(models.Productos, {
-            as: "productos",
-            through:"producto_cliente",
+    Users.associate = function (models) {
+        Users.belongsToMany(models.Products, {
+            as: "products",
+            through:"products_users",
             foreignKey: "id",
             otherKey: "id",
             timestamps: false
@@ -46,5 +46,5 @@ module.exports = function (sequelize, DataTypes){
     }
 
 
-    return Clientes;
+    return Users;
 }
