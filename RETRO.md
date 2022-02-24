@@ -1,7 +1,2 @@
 RETRO.md
-Finalizando este sprint, concluimos:
-1.	Comenzar a hacer: Comprometernos más con la daily de manera de poder estar al tanto de los problemas y progresos de cada uno.
-2.	Hacer más: Preguntar mas dudas a los profesores.
-3.	Continuar haciendo: Juntarse en otros momentos.
-4.	Hacer menos: Quedarnos atras con el curso.
-5.	Dejar de hacer: No saltear ejercicios importantes.
+Concluimos que tenemos que comenzar a reunirnos mas seguidos, estar mas pendientes de las dailys. Se nos dificultó entregar este sprint a tiempo debido a que tuvimos problemas con la base de datos que nos impiden levantar la página, por lo que tenemos que repasar más las clases de ese módulo. De igual modo, tenemos que continuar consultando con profesores y compañeros para poder solucionar errores en los que nos quedamos trabados, y dejar de quedarnos estancados cuando problemas de este tipo surgen.
