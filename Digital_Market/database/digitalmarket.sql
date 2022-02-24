@@ -124,3 +124,8 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+/* insert into productos (id,nombre,idImagen) values (,'',);
+insert into categorias (id,nombre,idImagen) values (,'',);
+insert into clientes (id,nombre,idImagen) values (,'',);
+insert into compras (id,nombre,idImagen) values (,'',);*/
