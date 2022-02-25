@@ -12,10 +12,10 @@ module.exports = function (sequelize, DataTypes){
             primaryKey: true,
             autoIncrement: true
         },
-        productos_id: {
+        products_id: {
             type: DataTypes.STRING  
         },
-        compras_id: {
+        cart_id: {
             type: DataTypes.STRING  
         }
     }

@@ -13,16 +13,16 @@ module.exports = function (sequelize, DataTypes){
         name: {
             type: DataTypes.STRING  
         },
-        country: {
+        nickName: {
             type: DataTypes.STRING  
         },
-        telefono: {
+        phoneNumber: {
             type: DataTypes.INTEGER  
         },
         email: {
             type: DataTypes.STRING  
         },
-        adress: {
+        password: {
             type: DataTypes.STRING  
         }
         
