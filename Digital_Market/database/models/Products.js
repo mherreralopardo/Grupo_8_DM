@@ -12,18 +12,35 @@ module.exports = function (sequelize, DataTypes){
             primaryKey: true,
             autoIncrement: true
         },
-        price: {
+        name: {
             type: DataTypes.STRING  
         },
-        stock: {
+        description: {
             type: DataTypes.STRING  
+        },
+        price: {
+            type: DataTypes.INTEGER  
+        },
+        discount: {
+            type: DataTypes.INTEGER  
+        },
+        category: {
+            type: DataTypes.INTEGER  
+        },
+        image: {
+            type: DataTypes.INTEGER  
+        },
+        type: {
+            type: DataTypes.INTEGER  
+        },
+        color: {
+            type: DataTypes.INTEGER  
         },
         categories_id: {
             type: DataTypes.INTEGER  
         },
-        name: {
-            type: DataTypes.INTEGER  
-        }
+        
+        
     }
 
     let config = {

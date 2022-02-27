@@ -26,6 +26,9 @@ module.exports = function (sequelize, DataTypes){
         fecha_cart: {
             type: DataTypes.STRING  
         },
+        date_cart: {
+            type: DataTypes.STRING  
+        },
         status_cart: {
             type: DataTypes.STRING  
         },

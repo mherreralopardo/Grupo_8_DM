@@ -15,6 +15,9 @@ module.exports = function (sequelize, DataTypes){
         name: {
             type: DataTypes.STRING  
         },
+        products_id: {
+            type: DataTypes.STRING  
+        },
         color: {
             type: DataTypes.STRING  
         },
