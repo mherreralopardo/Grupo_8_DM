@@ -8,7 +8,11 @@ module.exports = function (sequelize, DataTypes){
         
         {"id":16,"name":"Televisor Samsung-50 pulgadas","description"","price":4632,"discount":17,"category":"Televisores","image":"Sensei-32p.jpg","type":"Nuevo","color":"Negro"},
         */
-        
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
         products_id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -21,9 +25,6 @@ module.exports = function (sequelize, DataTypes){
             type: DataTypes.STRING  
         },
         email_cart: {
-            type: DataTypes.STRING  
-        },
-        fecha_cart: {
             type: DataTypes.STRING  
         },
         date_cart: {
