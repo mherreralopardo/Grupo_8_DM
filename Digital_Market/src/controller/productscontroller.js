@@ -125,4 +125,4 @@ delete: function (req,res){
     }
     */
 
-    module.exports = productsController;
+    module.exports = productscontroller;
