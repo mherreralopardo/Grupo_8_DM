@@ -4,13 +4,13 @@ const bcryptjs = require("bcryptjs");
 const fs = require('fs');
 const path = require('path');
 
-const userController = {
+const usercontroller = {
     //list
     usersList: (req, res) => {
-        db.Users.findAll({
-            include: [{association: "Cart"}]})
-        .then(function(usuarios){
-            res.render('./users/usersList', {usuarios});
+        db.users.findAll({
+            include: [{association: "cart"}]})
+        .then(function(users){
+            res.render('./users/usersList', {users});
         })
         .catch(function(e){
             console.log(e)
@@ -18,10 +18,10 @@ const userController = {
     },
     //detalle
     usersDetail: (req, res) => {
-        db.Users.findByPk(req.params.id, {  
-        include: [{ association : "Cart"}]})
+        db.users.findByPk(req.params.id, {  
+        include: [{ association : "cart"}]})
         .then(function(usuario){
-            res.render('./users/usersDetail', {usuario})  
+            res.render('./users/usersDetail', {user})  
         })
         .catch(function(e){
             console.log(e)
@@ -86,7 +86,7 @@ const userController = {
             });
         }
 
-        let userInDB = db.Users.findByField("email", req.body.email);
+        let userInDB = db.users.findByField("email", req.body.email);
 
         if (userInDB) {
             return res.render("userRegisterForm", {
@@ -106,7 +106,7 @@ const userController = {
         }
 
 
-        let userCreated = User.create(userToCreate);
+        let userCreated = user.create(userToCreate);
 
         res.redirect("/user/login")
     },
@@ -121,7 +121,7 @@ const userController = {
         })},
     //guarda user
  save: function (req,res){
-     db.Users.create({
+     db.users.create({
          name: req.body.name,
          email: req.body.email,
          password:req.body.password,
