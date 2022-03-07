@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes){
-    let alias = "Products"
+    let alias = "products"
 
     let cols = {
         /* AJUSTAR NOMBRE DE COLUMNAS
