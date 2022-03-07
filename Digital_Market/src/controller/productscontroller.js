@@ -5,11 +5,11 @@ const Sequelize = require('sequelize')
 const db = require('../database/models');
 const products = db.Products
 
-const productsController = {
+const productscontroller = {
     //lista de productos
    list: function(req,res) {
-       db.Products.findAll({
-        include: [{association: "Categories"}]})
+       db.products.findAll({
+        include: [{association: "categories"}]})
        .then(function (products){
        res.render('products', {products: products});
        })
@@ -20,8 +20,8 @@ const productsController = {
       //detalle
       
   detail: function (req,res){
-    db.Products.findByPk(req.params.id, {
-        include: [{association: "Users"}]}) 
+    db.products.findByPk(req.params.id, {
+        include: [{association: "users"}]}) 
     .then (function (unproducts){
         res.render("productdetail", {unproducts:unproducts})
     })
@@ -31,7 +31,7 @@ const productsController = {
 },
      //crear
      crear : function(req, res){
-        db.Products.create({
+        db.products.create({
             nameId: req.body.name,
             description: req.body.description,
             price: req.body.price,
@@ -48,10 +48,10 @@ const productsController = {
     //editar
      edit:function(req,res){
         let pedidoproducto = products.findAll(req.params.id);
-        let pedidoCliente = db.Users.findAll();
+        let pedidoCliente = db.users.findAll();
     
         Promise.all([pedidoproducto, pedidoCliente])
-        .then (function([producto, cliente]){
+        .then (function([product, user]){
             res.render("/productlist")
         })
         .catch(function(e) {
@@ -85,7 +85,7 @@ const productsController = {
   
    
 guardado: function (req,res){
-   prod.create({
+   products.create({
         id: req.body.id,
         name: req.body.name,
         description: req.body.description,
