@@ -1,36 +1,38 @@
-module.exports = function (sequelize, DataTypes){
+ module.exports = function (sequelize, DataTypes){
     let alias = "cart_products"
 
-    let cols = {
-        /* AJUSTAR NOMBRE DE COLUMNAS
+     let cols = {
         
-        {"id":16,"name":"Televisor Samsung-50 pulgadas","description"","price":4632,"discount":17,"category":"Televisores","image":"Sensei-32p.jpg","type":"Nuevo","color":"Negro"},
-        */
         
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        products_id: {
-            type: DataTypes.STRING  
-        },
-    }
+         id: {
+             type: DataTypes.INTEGER,
+           primaryKey: true,
+             autoIncrement: true
+         },
+         products_id: {
+             type: DataTypes.STRING  
+         },
+         cart_id: {
+             type: DataTypes.STRING  
+       }
+     }
 
-    let config = {
-        tableName: "cart_products",
-        timestamps: false
-    }
+     let config = {
+         tableName: "cart_products",
+         timestamps: false
+     }
 
-    let cart_products = sequelize.define (alias, cols, config);
+   let cart_Products = sequelize.define (alias, cols, config);
 
-    cart_products.associate = function (models) {
-        cart_products.hasMany(models.Cart, {
+     cart_Products.associate = function (models) {
+         cart_Products.hasMany(models.cart, {
             as: "Cart",
-            foreignKey: "products_id",
-            timestamps: false
+             foreignKey: "products_id",
+             otherKey: "cart_id",
+             timestamps: false
         })
-    }
+     }
 
-    return cart_products;
-}
+     return cart_products;
+ }
+
