@@ -6,7 +6,7 @@ const db = require("../../database/models");
 
 const UserAPIController = {
     list: (req, res) => {
-        db.User.findAll({
+        db.user.findAll({
             include: [{association: "UserCat"}]})
         .then(users => {           let respuesta = {
                 meta: {
@@ -32,7 +32,7 @@ const UserAPIController = {
     },
     
     detail: (req, res) => {
-        db.User.findByPk(req.params.id)
+        db.user.findByPk(req.params.id)
             .then(user => {
                 let respuesta = {
                     meta: {
